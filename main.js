@@ -1,25 +1,29 @@
+const cellularAutomataFragment = document.createDocumentFragment()
+
 function randBinary() {
   return Math.round(Math.random())
 }
 
 function calcState(l, m, r) {
-  if (l && m && r) return 0
-  if (l && m && !r) return 1
+  if (l && m && r) return 1
+  if (l && m && !r) return 0
   if (l && !m && r) return 1
   if (l && !m && !r) return 0
   if (!l && m && r) return 0
-  if (!l && m && !r) return 0
-  if (!l && !m && r) return 1
+  if (!l && m && !r) return 1
+  if (!l && !m && r) return 0
   return 1
 }
 
-function renderRow(prevRow) {
-  const main = document.querySelector('main')
+function makeRowFragment(prevRow) {
+  const noOfDivs = 600
+  const rowContainerFragment = document.createDocumentFragment()
+  const rowItemsFragment = document.createDocumentFragment()
+
   const row = document.createElement('div')
-  const noOfDivs = 400
 
   row.classList.add('row')
-  main.appendChild(row)
+  rowContainerFragment.appendChild(row)
 
   for (let i = 0; i < noOfDivs; i++) {
     const div = document.createElement('div')
@@ -38,18 +42,22 @@ function renderRow(prevRow) {
     }
     div.classList.add(state ? 'active' : 'inactive')
     div.dataset.state = state
-    row.appendChild(div)
+    rowItemsFragment.appendChild(div)
   }
+  rowContainerFragment.querySelector('.row').appendChild(rowItemsFragment)
+  return rowContainerFragment
 }
 
 
 function render () {
   const main = document.querySelector('main')
-  const lastRow = document.querySelector('.row:last-child')
+  const lastRow = cellularAutomataFragment.querySelector('.row:last-child')
 
-  if (main.childNodes.length < 400) {
-    renderRow(lastRow)
+  if (cellularAutomataFragment.childNodes.length < 209) {
+    cellularAutomataFragment.appendChild(makeRowFragment(lastRow))
     window.requestAnimationFrame(render)
+  } else {
+    main.replaceChild(cellularAutomataFragment, document.querySelector('main > p'))
   }
 }
 

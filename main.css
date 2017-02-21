@@ -1,17 +1,34 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 body {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .row {
   display: flex;
 }
 .row div {
-  height: 2px;
-  width: 2px;
+  height: 1px;
+  width: 1px;
 }
 .row .active {
   background: transparent;
 }
 .row .inactive {
   background: black;
+}
+.loading {
+  animation: 2s linear 0s infinite alternate breathe;
+}
+@keyframes breathe {
+  from {
+    letter-spacing: normal;
+  }
+  to {
+    letter-spacing: 4px;
+  }
 }
