@@ -1,0 +1,17 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+.row {
+  display: flex;
+}
+.row div {
+  height: 2px;
+  width: 2px;
+}
+.row .active {
+  background: transparent;
+}
+.row .inactive {
+  background: black;
+}
