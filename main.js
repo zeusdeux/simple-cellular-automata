@@ -5,11 +5,11 @@ function randBinary() {
 function calcState(l, m, r) {
   if (l && m && r) return 0
   if (l && m && !r) return 1
-  if (l && !m && r) return 0
+  if (l && !m && r) return 1
   if (l && !m && !r) return 0
-  if (!l && m && r) return 1
+  if (!l && m && r) return 0
   if (!l && m && !r) return 0
-  if (!l && !m && r) return 0
+  if (!l && !m && r) return 1
   return 1
 }
 
