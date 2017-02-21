@@ -1,5 +1,5 @@
 # simple-cellular-automata
-Simple one dimensional automata live programmed while watching @mpj's [Cellular Automata - Pair Programming - FunFunFunction #49](https://www.youtube.com/watch?v=bc-fVdbjAwk) with @lrlna.
+Simple one dimensional automata live programmed while watching [@mpj's](//github.com/mpj) [Cellular Automata - Pair Programming - FunFunFunction #49](https://www.youtube.com/watch?v=bc-fVdbjAwk) with [@lrlna](//github.com/lrlna).
 
 Uses a random rule that I thought gave me pretty output.
 
